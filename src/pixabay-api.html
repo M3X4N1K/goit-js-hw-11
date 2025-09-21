@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page 2</title>
+    <title>pixabay api</title>
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
@@ -12,6 +12,27 @@
       <div class="container">
         <h1 class="main-title">pixabay api</h1>
         <a class="back-link" href="./index.html">Go back</a>
+
+        <form id="search-form" class="form">
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Search images..."
+            required
+          />
+          <button type="submit">Search</button>
+        </form>
+
+        <div id="loader" class="loader hidden">
+          <div class="lds-ring">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+
+        <ul id="gallery" class="gallery"></ul>
       </div>
     </main>
 
