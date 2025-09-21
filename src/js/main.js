@@ -13,8 +13,8 @@ iziToast.settings({
 });
 
 // Get form element
-const form = document.querySelector('.form');
-const searchInput = form.querySelector('input[name="search-text"]');
+const form = document.querySelector('#search-form');
+const searchInput = form.querySelector('#search-input');
 
 // Form submission handler
 form.addEventListener('submit', async (event) => {
