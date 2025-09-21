@@ -2,36 +2,44 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/goit-js-hw-11/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanilla App Template</title>
-    <link rel="stylesheet" crossorigin href="/goit-js-hw-11/assets/styles-D-TGlNdJ.css">
+    <title>Pixabay Image Search</title>
+    <script type="module" crossorigin src="/goit-js-hw-11/index.js"></script>
+    <link rel="modulepreload" crossorigin href="/goit-js-hw-11/assets/styles-D8Ekklka.js">
+    <link rel="modulepreload" crossorigin href="/goit-js-hw-11/assets/vendor-Dr0KmOfh.js">
+    <link rel="modulepreload" crossorigin href="/goit-js-hw-11/assets/pixabay-api-Dmvbxiz0.js">
+    <link rel="modulepreload" crossorigin href="/goit-js-hw-11/assets/render-functions-dWlUNj9b.js">
+    <link rel="stylesheet" crossorigin href="/goit-js-hw-11/assets/styles-0aUUwmbH.css">
+    <link rel="stylesheet" crossorigin href="/goit-js-hw-11/assets/vendor-CX4EDM7x.css">
   </head>
   <body>
-    <header class="header">
-      <div class="container">
-        <nav class="nav">
-          <a class="nav-logo" href="./index.html" aria-label="Site logo">
-            <svg class="nav-logo-icon" width="100" height="30">
-              <use href="/goit-js-hw-11/assets/logo-CWKflIk4.svg"></use>
-            </svg>
-          </a>
-          <ul class="nav-list">
-            <li class="nav-item">
-              <a class="nav-link {=$highlight-act}" href="./pixabay-api.html"
-                >pixabay api</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link {=$highlight-curr}"
-                href="./render-functions.html"
-                >render functions</a
-              >
-            </li>
-          </ul>
-        </nav>
+    <div class="container">
+      <h1>Pixabay Image Search</h1>
+
+      <form class="form">
+        <label>
+          <input
+            type="text"
+            name="search-text"
+            placeholder="Search images..."
+            required
+          />
+        </label>
+        <button type="submit">Search</button>
+      </form>
+
+      <div class="loader hidden">
+        <div class="lds-ring">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        Loading images, please wait...
       </div>
-    </header>
+
+      <ul class="gallery"></ul>
+    </div>
+
   </body>
 </html>
