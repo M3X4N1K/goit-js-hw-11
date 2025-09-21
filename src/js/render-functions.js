@@ -1,54 +1,63 @@
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 
-const gallery = document.getElementById("gallery");
-const loader = document.getElementById("loader");
+// DOM elements
+const gallery = document.querySelector('.gallery');
+const loader = document.querySelector('.loader');
 
-// --- SimpleLightbox ---
-let lightbox = new SimpleLightbox(".gallery a", {
-  captionsData: "alt",
-  captionDelay: 250,
+// Create SimpleLightbox instance
+let lightbox = new SimpleLightbox('.gallery a', {
+    captionsData: 'alt',
+    captionDelay: 250,
+    nav: true,
+    close: true,
 });
 
-// --- Функції ---
 export function createGallery(images) {
-  const markup = images
-    .map(
-      ({
-        webformatURL,
-        largeImageURL,
-        tags,
-        likes,
-        views,
-        comments,
-        downloads,
-      }) => `
-      <li class="gallery-item">
-        <a href="${largeImageURL}">
-          <img src="${webformatURL}" alt="${tags}" loading="lazy" />
-        </a>
-        <div class="info">
-          <p><b>Likes:</b> ${likes}</p>
-          <p><b>Views:</b> ${views}</p>
-          <p><b>Comments:</b> ${comments}</p>
-          <p><b>Downloads:</b> ${downloads}</p>
-        </div>
-      </li>`
-    )
-    .join("");
+    const markup = images
+        .map(({ webformatURL, largeImageURL, tags, likes, views, comments, downloads }) => `
+            <li class="gallery-item">
+                <a href="${largeImageURL}">
+                    <img src="${webformatURL}" alt="${tags}" loading="lazy" />
+                </a>
+                <div class="info">
+                    <div class="info-row">
+                        <div class="info-item">
+                            <b>Likes</b>
+                            ${likes.toLocaleString()}
+                        </div>
+                        <div class="info-item">
+                            <b>Views</b>
+                            ${views.toLocaleString()}
+                        </div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-item">
+                            <b>Comments</b>
+                            ${comments.toLocaleString()}
+                        </div>
+                        <div class="info-item">
+                            <b>Downloads</b>
+                            ${downloads.toLocaleString()}
+                        </div>
+                    </div>
+                </div>
+            </li>
+        `)
+        .join('');
 
-  gallery.innerHTML = markup;
-  lightbox.refresh();
+    gallery.innerHTML = markup;
+    lightbox.refresh();
 }
 
 export function clearGallery() {
-  gallery.innerHTML = "";
+    gallery.innerHTML = '';
 }
 
 export function showLoader() {
-  if (loader) loader.classList.remove("hidden");
+    loader.classList.remove('hidden');
 }
 
 export function hideLoader() {
-  if (loader) loader.classList.add("hidden");
+    loader.classList.add('hidden');
 }
