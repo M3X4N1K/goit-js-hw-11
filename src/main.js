@@ -1,7 +1,7 @@
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
-import { getImagesByQuery } from "./pixabay-api.js";
-import { createGallery, clearGallery, showLoader, hideLoader } from "./render-functions.js";
+import { getImagesByQuery } from "./js/pixabay-api.js";
+import { createGallery, clearGallery, showLoader, hideLoader } from "./js/render-functions.js";
 
 // Configure iziToast default settings
 iziToast.settings({
@@ -13,8 +13,13 @@ iziToast.settings({
 });
 
 // Get form element
-const form = document.querySelector('#search-form');
-const searchInput = form.querySelector('#search-input');
+const form = document.querySelector('.form');
+const searchInput = document.querySelector('input[name="search-text"]');
+
+// Check if elements exist
+if (!form || !searchInput) {
+    console.error('Form elements not found');
+}
 
 // Form submission handler
 form.addEventListener('submit', async (event) => {
